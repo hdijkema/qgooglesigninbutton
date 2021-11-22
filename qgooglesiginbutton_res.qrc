@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/qgooglesigninbutton">
+        <file alias="dark_disabled.svg">resources/btn_google_dark_disabled.svg</file>
+        <file alias="dark_focus.svg">resources/btn_google_dark_focus.svg</file>
+        <file alias="dark_normal.svg">resources/btn_google_dark_normal.svg</file>
+        <file alias="dark_pressed.svg">resources/btn_google_dark_pressed.svg</file>
+        <file alias="roboto.ttf">resources/Roboto-Regular.ttf</file>
+        <file alias="light_disabled.svg">resources/btn_google_light_disabled.svg</file>
+        <file alias="light_focus.svg">resources/btn_google_light_focus.svg</file>
+        <file alias="light_normal.svg">resources/btn_google_light_normal.svg</file>
+        <file alias="light_pressed.svg">resources/btn_google_light_pressed.svg</file>
+    </qresource>
+</RCC>
