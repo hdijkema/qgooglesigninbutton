@@ -9,6 +9,9 @@ class MainWindowData
 {
 public:
     QGoogleSignInButton *btn;
+    int                 _times;
+public:
+    MainWindowData() : btn(nullptr), _times(0) { }
 };
 
 MainWindow::MainWindow(QWidget *parent)
@@ -18,19 +21,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     D = new MainWindowData();
+    D->btn = ui->pbGoogle;
+    connect(D->btn, &QGoogleSignInButton::clicked, this, &MainWindow::clicked);
+    D->btn->setInitial();
 
+    ui->cbEnable->setChecked(true);
+    connect(ui->pbQuit, &QPushButton::clicked, this, &MainWindow::quit);
 
-    D->btn = new QGoogleSignInButton(this);
-
-    connect(D->btn, &QGoogleSignInButton::clicked, this, &MainWindow::quit);
-
-    QLayout *l = ui->centralwidget->layout();
-
-    QHBoxLayout *hbox = new QHBoxLayout();
-    hbox->addWidget(D->btn);
-    hbox->addStretch();
-
-    l->addItem(hbox);
+    ui->lbClicked->setText("-");
+    setWindowTitle(tr("Google Sign In Button Test app"));
 }
 
 MainWindow::~MainWindow()
@@ -50,9 +49,18 @@ void MainWindow::on_cbLight_toggled(bool checked)
     D->btn->setLight(checked);
 }
 
-
-void MainWindow::on_pbDisableEnable_clicked()
+void MainWindow::on_cbEnable_toggled(bool checked)
 {
-    D->btn->setEnabled(!D->btn->isEnabled());
+    D->btn->setEnabled(checked);
+}
+
+void MainWindow::clicked()
+{
+    ui->lbClicked->setText(tr("Google Sign In button has been clicked %1 times").arg(++D->_times));
+    if ((D->_times % 2) == 1) {
+        D->btn->setAgain();
+    } else {
+        D->btn->setInitial();
+    }
 }
 

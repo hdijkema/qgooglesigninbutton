@@ -22,10 +22,10 @@ public:
 
 private slots:
     void quit();
+    void clicked();
 
     void on_cbLight_toggled(bool checked);
-
-    void on_pbDisableEnable_clicked();
+    void on_cbEnable_toggled(bool checked);
 
 private:
     Ui::MainWindow *ui;
