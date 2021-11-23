@@ -22,6 +22,8 @@ QT += widgets
 TEMPLATE = lib
 DEFINES += QGOOGLESIGNINBUTTON_LIBRARY
 
+mac: QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.8
+
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
