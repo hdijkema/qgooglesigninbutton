@@ -28,6 +28,7 @@ win32: TARGET = qgooglesigninbutton_qt6
 mac: TARGET = libqgooglesigninbutton_qt6
 }
 
+mac: QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.8
 
 CONFIG += c++11
 
