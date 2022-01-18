@@ -32,4 +32,10 @@
 #  endif
 #endif
 
+#ifndef QT6
+#  if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#    define QT6
+#  endif
+#endif
+
 #endif // QGOOGLESIGNINBUTTON_GLOBAL_H

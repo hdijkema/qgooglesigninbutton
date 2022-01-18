@@ -22,6 +22,13 @@ QT += widgets
 TEMPLATE = lib
 DEFINES += QGOOGLESIGNINBUTTON_LIBRARY
 
+# QT6 Support
+equals(QT_MAJOR_VERSION, 6) {
+win32: TARGET = qgooglesigninbutton_qt6
+mac: TARGET = libqgooglesigninbutton_qt6
+}
+
+
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.

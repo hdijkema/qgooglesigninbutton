@@ -47,9 +47,10 @@ static QFont getFont()
 static QColor zcColor(const QString &html)
 {
     auto digInt = [](const QChar &D) {
-        QChar d = D.toLower();
-        int a = (d >= "0" && d <= "9") ? static_cast<int>(d.toLatin1() - '0')
-                : static_cast<int>(d.toLatin1() - 'a' + 10);
+        QChar dd = D.toLower();
+        char d = dd.toLatin1();
+        int a = (d >= '0' && d <= '9') ? static_cast<int>(d - '0')
+                : static_cast<int>(d - 'a' + 10);
         return a;
     };
 
@@ -152,7 +153,11 @@ void QGoogleSignInButton::focusOutEvent(QFocusEvent *event)
     QPushButton::focusOutEvent(event);
 }
 
+#ifdef QT6
+void QGoogleSignInButton::enterEvent(QEnterEvent *event)
+#else
 void QGoogleSignInButton::enterEvent(QEvent *event)
+#endif
 {
     enterEffect(true);
     setCursor(Qt::PointingHandCursor);

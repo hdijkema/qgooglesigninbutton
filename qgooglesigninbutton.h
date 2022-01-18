@@ -47,7 +47,11 @@ public:
 protected:
     virtual void focusInEvent(QFocusEvent *event) override;
     virtual void focusOutEvent(QFocusEvent *event) override;
+#ifdef QT6
+    virtual void enterEvent(QEnterEvent *event) override;
+#else
     virtual void enterEvent(QEvent *event) override;
+#endif
     virtual void leaveEvent(QEvent *event) override;
     virtual QSize minimumSizeHint() const override;
     virtual void changeEvent(QEvent *) override;
