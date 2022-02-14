@@ -35,11 +35,13 @@ static QFont getFont()
 
     if (!initialized) {
         id = QFontDatabase::addApplicationFont(":/qgooglesigninbutton/roboto.ttf");
+        //qDebug() << __FILE__ << __LINE__ << id;
         initialized = true;
     }
 
     QString family = QFontDatabase::applicationFontFamilies(id).at(0);
     QFont f(family);
+    //qDebug() << family;
 
     return f;
 }
