@@ -28,7 +28,6 @@ win32: TARGET = qgooglesigninbutton_qt6
 mac: TARGET = libqgooglesigninbutton_qt6
 }
 
-#mac: QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.8
 mac: message(Qt Deployment Target: $$QMAKE_MACOSX_DEPLOYMENT_TARGET)
 mac: QMAKE_APPLE_DEVICE_ARCHS = x86_64 arm64
 
